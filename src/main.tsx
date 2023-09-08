@@ -14,7 +14,7 @@ const cartStore = new CartStore(root)
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
     <React.StrictMode>
-            <App root={root} productStore={productStore} cartStore={cartStore} />
+            <App root={root}  />
     </React.StrictMode>,
 );
 
