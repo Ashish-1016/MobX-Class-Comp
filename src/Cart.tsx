@@ -1,19 +1,17 @@
 import {Component} from "react";
 import {RootStore} from "./stores/RootStore.ts";
-import {CartStore} from "./stores/CartStore.ts";
 import ProductCard from "./components/ProductCard.tsx";
 import {observer} from "mobx-react";
 
 interface Props {
     root:RootStore,
-    cartStore:CartStore
 }
 
 class Cart extends Component<Props> {
 
     render() {
 
-        console.log('Cart Items',this.props.cartStore.Cart)
+        console.log('Cart Items',this.props.root.cartStore.Cart)
 
 
         return (
@@ -21,9 +19,8 @@ class Cart extends Component<Props> {
                 Cart Component
                 <section>
                     Your Cart Items:
-                    {JSON.stringify(this.props.cartStore.cart)}
                     {
-                        this.props.cartStore.cart.map((item)=>{
+                        this.props.root.cartStore.cart.map((item)=>{
                             return(
                                 <ProductCard product={item.product} root={this.props.root} hasAddButton={false}/>
                             )
